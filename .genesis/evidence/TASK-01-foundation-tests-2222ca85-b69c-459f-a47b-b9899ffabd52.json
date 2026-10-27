@@ -1,0 +1,30 @@
+{
+  "task": "TASK-01",
+  "gate": "foundation-tests",
+  "kind": "command",
+  "attempt": "2222ca85-b69c-459f-a47b-b9899ffabd52",
+  "command": "python -m pytest -q tests/test_config.py",
+  "started_at": "2026-10-27T10:22:43.994Z",
+  "observed_at": "2026-10-27T10:22:45.644Z",
+  "exit_code": 0,
+  "signal": null,
+  "stdout": "......                                                                   [100%]\r\n6 passed in 0.09s\r\n",
+  "stderr": "",
+  "failure": null,
+  "receipt": null,
+  "revision": {
+    "commit": null,
+    "dirty": null
+  },
+  "source_hash": "bff1ce271ce5207aa4075b9213e1d198a2976bd25196075b4c7b86ddc275b754",
+  "before_hash": "bff1ce271ce5207aa4075b9213e1d198a2976bd25196075b4c7b86ddc275b754",
+  "config_hash": "c1bff3e965d79df4ccc7f808a7ba7a81a9f436adb1920c330e6ba331515dbf39",
+  "environment": {
+    "node": "v24.11.1",
+    "platform": "win32",
+    "arch": "x64",
+    "verifier": "cbdddbf25e5ed5f3406b93881ae54f64d11a8c54f0bfe177d19d9d9946a6a971",
+    "variables": {}
+  },
+  "hash": "df02770ed013fbfae7bc99f473557d3ab339037049147f7021d8f83c59fa6a96"
+}

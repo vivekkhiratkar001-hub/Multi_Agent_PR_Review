@@ -1,0 +1,694 @@
+{
+  "schema_version": 2,
+  "project": {
+    "name": "Multi-Agent PR Reviewer",
+    "mode": "init",
+    "profile": "prototype",
+    "objective": "Build a reliable multi-agent GitHub pull request reviewer that detects bugs and security vulnerabilities, verifies findings to reduce false positives, and publishes actionable review comments.",
+    "constraints": [],
+    "non_goals": [],
+    "trust_boundary": "local repository",
+    "created_at": "2026-10-27T09:27:21.559Z",
+    "updated_at": "2026-10-27T11:02:58.449Z"
+  },
+  "policy": {
+    "ponytail": "full",
+    "autonomy": "human-in-the-loop",
+    "learned_rule_promotion": "human-required",
+    "cleanup": "propose-only",
+    "traces": {
+      "storage": "local",
+      "commit_raw": false,
+      "redact_secrets": true
+    }
+  },
+  "lifecycle": {
+    "phase": "build",
+    "status": "active",
+    "active_task": "TASK-03",
+    "blocker": null,
+    "next_action": "Run the task pre-flight."
+  },
+  "commands": {},
+  "workflow": {
+    "type": "new-product",
+    "started_at": "2026-10-27T09:27:21.561Z",
+    "spec_check": {
+      "at": "2026-10-27T09:40:11.024Z",
+      "source_hash": "be362e21d8919f4bfd9b8c5f4807ae0b4c9ce9e7c8e1d72381def3bc399fd9fd",
+      "requirements": [
+        "AC-1",
+        "AC-10",
+        "AC-11",
+        "AC-12",
+        "AC-13",
+        "AC-14",
+        "AC-15",
+        "AC-2",
+        "AC-3",
+        "AC-4",
+        "AC-5",
+        "AC-6",
+        "AC-7",
+        "AC-8",
+        "AC-9",
+        "FR-1",
+        "FR-10",
+        "FR-11",
+        "FR-12",
+        "FR-13",
+        "FR-14",
+        "FR-15",
+        "FR-16",
+        "FR-17",
+        "FR-18",
+        "FR-19",
+        "FR-2",
+        "FR-3",
+        "FR-4",
+        "FR-5",
+        "FR-6",
+        "FR-7",
+        "FR-8",
+        "FR-9",
+        "NFR-1",
+        "NFR-10",
+        "NFR-11",
+        "NFR-12",
+        "NFR-13",
+        "NFR-14",
+        "NFR-2",
+        "NFR-3",
+        "NFR-4",
+        "NFR-5",
+        "NFR-6",
+        "NFR-7",
+        "NFR-8",
+        "NFR-9"
+      ]
+    },
+    "plan_check": {
+      "at": "2026-10-27T09:58:41.594Z",
+      "source_hash": "c9fa8ee1f410343f10b994f56e606e8e940e90127cbf2ed4d533e0b5d896b8fa"
+    },
+    "plan_approval": {
+      "human": "Vivek",
+      "reason": "Reviewed and approved the eight-task implementation plan covering all specification requirements, secure webhook handling, evidence-verified multi-agent analysis, guarded publishing, and integration testing.",
+      "at": "2026-10-27T09:58:57.780Z",
+      "source_hash": "c9fa8ee1f410343f10b994f56e606e8e940e90127cbf2ed4d533e0b5d896b8fa"
+    }
+  },
+  "artifacts": [
+    {
+      "id": "SPEC-1",
+      "type": "specification",
+      "path": "SPEC.md",
+      "status": "approved",
+      "requirements": [
+        "AC-1",
+        "AC-10",
+        "AC-11",
+        "AC-12",
+        "AC-13",
+        "AC-14",
+        "AC-15",
+        "AC-2",
+        "AC-3",
+        "AC-4",
+        "AC-5",
+        "AC-6",
+        "AC-7",
+        "AC-8",
+        "AC-9",
+        "FR-1",
+        "FR-10",
+        "FR-11",
+        "FR-12",
+        "FR-13",
+        "FR-14",
+        "FR-15",
+        "FR-16",
+        "FR-17",
+        "FR-18",
+        "FR-19",
+        "FR-2",
+        "FR-3",
+        "FR-4",
+        "FR-5",
+        "FR-6",
+        "FR-7",
+        "FR-8",
+        "FR-9",
+        "NFR-1",
+        "NFR-10",
+        "NFR-11",
+        "NFR-12",
+        "NFR-13",
+        "NFR-14",
+        "NFR-2",
+        "NFR-3",
+        "NFR-4",
+        "NFR-5",
+        "NFR-6",
+        "NFR-7",
+        "NFR-8",
+        "NFR-9"
+      ],
+      "source_hash": "be362e21d8919f4bfd9b8c5f4807ae0b4c9ce9e7c8e1d72381def3bc399fd9fd",
+      "approval": {
+        "human": "Vivek",
+        "reason": "Approved the requirements for the multi-agent GitHub PR reviewer, including webhook security, verified findings, dry-run safeguards, and staged implementation.",
+        "at": "2026-10-27T09:41:19.596Z",
+        "source_hash": "be362e21d8919f4bfd9b8c5f4807ae0b4c9ce9e7c8e1d72381def3bc399fd9fd"
+      }
+    }
+  ],
+  "assumptions": [],
+  "invariants": [],
+  "decisions": [],
+  "knowledge": [],
+  "tasks": [
+    {
+      "id": "SPEC-1",
+      "outcome": "Produce an approved, implementation-ready product specification",
+      "state": "done",
+      "risk": "medium",
+      "owner": null,
+      "scope": [
+        "SPEC.md"
+      ],
+      "dependencies": [],
+      "requirements": [],
+      "gates": [
+        {
+          "id": "independent-review",
+          "command": "",
+          "mandatory": true,
+          "status": "pass",
+          "evidence": {
+            "human": "Vivek",
+            "reason": "Approved the requirements for the multi-agent GitHub PR reviewer, including webhook security, verified findings, dry-run safeguards, and staged implementation.",
+            "source_hash": "c9fc9aa5b2ba5589ad33b64fe52711f109bc772a8f94f5409eaa98f3354bc3a2",
+            "observed_at": "2026-10-27T09:41:19.596Z"
+          },
+          "kind": "review"
+        }
+      ],
+      "next_action": "Interview the human, record durable context, and replace every placeholder in SPEC.md.",
+      "blocker": null,
+      "notes": [],
+      "failures": [],
+      "limitations": [],
+      "created_at": "2026-10-27T09:27:21.561Z",
+      "updated_at": "2026-10-27T09:41:19.596Z"
+    },
+    {
+      "id": "TASK-01",
+      "outcome": "Establish the Python project structure, configuration, dependency management, test framework, provider-independent LLM interface, and secure environment-based settings.",
+      "state": "done",
+      "risk": "low",
+      "owner": null,
+      "scope": [],
+      "dependencies": [],
+      "requirements": [
+        "FR-8",
+        "NFR-1",
+        "NFR-4",
+        "NFR-5",
+        "NFR-11",
+        "NFR-12",
+        "NFR-13",
+        "AC-14"
+      ],
+      "inputs": [],
+      "environment": [],
+      "scenarios": [],
+      "gates": [
+        {
+          "id": "foundation-tests",
+          "kind": "command",
+          "command": "python -m pytest -q tests/test_config.py",
+          "mandatory": true,
+          "status": "pass",
+          "evidence": {
+            "path": ".genesis/evidence/TASK-01-foundation-tests-2222ca85-b69c-459f-a47b-b9899ffabd52.json",
+            "hash": "df02770ed013fbfae7bc99f473557d3ab339037049147f7021d8f83c59fa6a96",
+            "source_hash": "bff1ce271ce5207aa4075b9213e1d198a2976bd25196075b4c7b86ddc275b754",
+            "config_hash": "c1bff3e965d79df4ccc7f808a7ba7a81a9f436adb1920c330e6ba331515dbf39",
+            "observed_at": "2026-10-27T10:22:45.644Z"
+          }
+        }
+      ],
+      "next_action": "Run the task pre-flight.",
+      "blocker": null,
+      "notes": [],
+      "failures": [],
+      "limitations": [],
+      "created_at": "2026-10-27T09:56:39.926Z",
+      "updated_at": "2026-10-27T10:25:59.689Z",
+      "base_manifest": {
+        "SPEC.md": "090fb75466ccba5f3fc8d73af771d8aaea25a5b44e725d21203dd092bbf2936a"
+      }
+    },
+    {
+      "id": "TASK-02",
+      "outcome": "Implement the FastAPI GitHub webhook endpoint with constant-time signature validation, pull-request event filtering, prompt acknowledgement after job recording, and rejection of unsupported actions.",
+      "state": "done",
+      "risk": "low",
+      "owner": null,
+      "scope": [],
+      "dependencies": [
+        "TASK-01"
+      ],
+      "requirements": [
+        "FR-1",
+        "FR-2",
+        "FR-3",
+        "FR-4",
+        "NFR-2",
+        "NFR-6",
+        "AC-1",
+        "AC-2",
+        "AC-3"
+      ],
+      "inputs": [],
+      "environment": [],
+      "scenarios": [],
+      "gates": [
+        {
+          "id": "webhook-tests",
+          "kind": "command",
+          "command": "python -m pytest -q tests/test_webhooks.py",
+          "mandatory": true,
+          "status": "pass",
+          "evidence": {
+            "path": ".genesis/evidence/TASK-02-webhook-tests-b7891e86-3097-4068-8475-141e1edcd48a.json",
+            "hash": "6bf7466bb7d477fc57fae0492e6fd9dafae80d6e95ba4231f7c3c64a73f53d80",
+            "source_hash": "69d4fca26f6d24b00d22ebdd2453f3ec7ed6efa33f996415e019a6082851a720",
+            "config_hash": "e2c2e9eb68762ac0941279b05cb6c81779305c21ecfbb21c2a5a97e3993be0ee",
+            "observed_at": "2026-10-27T11:02:54.416Z"
+          }
+        }
+      ],
+      "next_action": "Run the task pre-flight.",
+      "blocker": null,
+      "notes": [],
+      "failures": [],
+      "limitations": [],
+      "created_at": "2026-10-27T09:56:48.982Z",
+      "updated_at": "2026-10-27T11:02:58.292Z",
+      "base_manifest": {
+        ".env.example": "55be84f3f178ae860eb4515201f4a077c838960c64e582c658432eb38fa53133",
+        ".gitignore": "5e43535de4cadac2d950653655363d863d4c3b30692975046e10df04e438acaf",
+        "SPEC.md": "090fb75466ccba5f3fc8d73af771d8aaea25a5b44e725d21203dd092bbf2936a",
+        "pyproject.toml": "e537f5d882e62ea6d834738f12b22999e5181c7847bd0361836f30b152314f7f",
+        "requirements.txt": "5e8e7e1068d0b7d71f30613c3793ae1ef7e46b9973bf0f56fb36e4ae87ccc24f",
+        "src/pr_reviewer/__init__.py": "78fb5f112b9e331e6d45cc7ba20c364344137c40dce44296fbdbe7854ba5bea2",
+        "src/pr_reviewer/config.py": "1852dfeff261b13f6e5cea8389323cef6d6d3ff592581bad48cfbb0e4b741bad",
+        "src/pr_reviewer/llm/__init__.py": "78fb5f112b9e331e6d45cc7ba20c364344137c40dce44296fbdbe7854ba5bea2",
+        "src/pr_reviewer/llm/providers.py": "c823084c772b4267aeda405b1fa4777a8d23aa743359fd479ae25bbac6e69830",
+        "tests/test_config.py": "52a7364c0398f89abd156c2c63a489f2174e937c41181722417eeb56ea76f76a"
+      }
+    },
+    {
+      "id": "TASK-03",
+      "outcome": "Implement idempotent webhook processing, GitHub pull-request metadata and changed-file retrieval, persistent review-job tracking, bounded API retries, and clear failure and recovery states.",
+      "state": "active",
+      "risk": "low",
+      "owner": null,
+      "scope": [],
+      "dependencies": [
+        "TASK-02"
+      ],
+      "requirements": [
+        "FR-5",
+        "FR-6",
+        "FR-16",
+        "FR-17",
+        "NFR-3",
+        "NFR-10",
+        "AC-4",
+        "AC-5",
+        "AC-13"
+      ],
+      "inputs": [],
+      "environment": [],
+      "scenarios": [],
+      "gates": [
+        {
+          "id": "job-tests",
+          "kind": "command",
+          "command": "python -m pytest -q tests/test_jobs.py",
+          "mandatory": true,
+          "status": "pending",
+          "evidence": null
+        }
+      ],
+      "next_action": "Run the task pre-flight.",
+      "blocker": null,
+      "notes": [],
+      "failures": [],
+      "limitations": [],
+      "created_at": "2026-10-27T09:56:55.478Z",
+      "updated_at": "2026-10-27T09:56:55.479Z",
+      "base_manifest": {
+        ".env.example": "55be84f3f178ae860eb4515201f4a077c838960c64e582c658432eb38fa53133",
+        ".gitignore": "d8fd83ea29f536afeaa55d9c2024c671a2a3b92d053a9385338e18982f0a1d6c",
+        "SPEC.md": "090fb75466ccba5f3fc8d73af771d8aaea25a5b44e725d21203dd092bbf2936a",
+        "pyproject.toml": "e537f5d882e62ea6d834738f12b22999e5181c7847bd0361836f30b152314f7f",
+        "requirements.txt": "5e8e7e1068d0b7d71f30613c3793ae1ef7e46b9973bf0f56fb36e4ae87ccc24f",
+        "src/pr_reviewer/__init__.py": "78fb5f112b9e331e6d45cc7ba20c364344137c40dce44296fbdbe7854ba5bea2",
+        "src/pr_reviewer/config.py": "1852dfeff261b13f6e5cea8389323cef6d6d3ff592581bad48cfbb0e4b741bad",
+        "src/pr_reviewer/jobs.py": "b49e740ac889787eadaf0b72638a4343e9071e3bdf87a7c7069a82cabd4e2e56",
+        "src/pr_reviewer/llm/__init__.py": "78fb5f112b9e331e6d45cc7ba20c364344137c40dce44296fbdbe7854ba5bea2",
+        "src/pr_reviewer/llm/providers.py": "c823084c772b4267aeda405b1fa4777a8d23aa743359fd479ae25bbac6e69830",
+        "src/pr_reviewer/main.py": "44fcfe6fbca9a54b047d919aa5b0676df4dd813449d89026b4f955413f2d1e4f",
+        "tests/test_config.py": "52a7364c0398f89abd156c2c63a489f2174e937c41181722417eeb56ea76f76a",
+        "tests/test_webhooks.py": "302eba0e97511df31fd4da7f73af16da8ea19629952dd1c9c301d67739f9e8c1"
+      }
+    },
+    {
+      "id": "TASK-04",
+      "outcome": "Implement Python-first code analysis with deterministic checks and specialist agents for security vulnerabilities, logic and code-quality defects, and testing gaps. Keep language-specific analysis separate from the core pipeline.",
+      "state": "queued",
+      "risk": "low",
+      "owner": null,
+      "scope": [],
+      "dependencies": [
+        "TASK-01"
+      ],
+      "requirements": [
+        "FR-7",
+        "FR-9",
+        "NFR-14",
+        "AC-6"
+      ],
+      "inputs": [],
+      "environment": [],
+      "scenarios": [],
+      "gates": [
+        {
+          "id": "analysis-tests",
+          "kind": "command",
+          "command": "python -m pytest -q tests/test_analysis.py",
+          "mandatory": true,
+          "status": "pending",
+          "evidence": null
+        }
+      ],
+      "next_action": "Run the task pre-flight.",
+      "blocker": null,
+      "notes": [],
+      "failures": [],
+      "limitations": [],
+      "created_at": "2026-10-27T09:57:02.144Z",
+      "updated_at": "2026-10-27T09:57:02.145Z"
+    },
+    {
+      "id": "TASK-05",
+      "outcome": "Implement structured candidate findings, evidence-based verification, confidence assessment, severity and location validation, and deduplication while preserving supporting evidence. Keep unverified observations separate from confirmed defects.",
+      "state": "queued",
+      "risk": "low",
+      "owner": null,
+      "scope": [],
+      "dependencies": [
+        "TASK-04"
+      ],
+      "requirements": [
+        "FR-10",
+        "FR-11",
+        "FR-12",
+        "NFR-9",
+        "AC-7",
+        "AC-8"
+      ],
+      "inputs": [],
+      "environment": [],
+      "scenarios": [],
+      "gates": [
+        {
+          "id": "verification-tests",
+          "kind": "command",
+          "command": "python -m pytest -q tests/test_verification.py",
+          "mandatory": true,
+          "status": "pending",
+          "evidence": null
+        }
+      ],
+      "next_action": "Run the task pre-flight.",
+      "blocker": null,
+      "notes": [],
+      "failures": [],
+      "limitations": [],
+      "created_at": "2026-10-27T09:57:08.327Z",
+      "updated_at": "2026-10-27T09:57:08.328Z"
+    },
+    {
+      "id": "TASK-06",
+      "outcome": "Generate structured review reports containing verified findings and uncertain observations, and implement a dry-run mode that produces reports without publishing GitHub comments.",
+      "state": "queued",
+      "risk": "low",
+      "owner": null,
+      "scope": [],
+      "dependencies": [
+        "TASK-05"
+      ],
+      "requirements": [
+        "FR-13",
+        "FR-14",
+        "NFR-8",
+        "AC-9",
+        "AC-10"
+      ],
+      "inputs": [],
+      "environment": [],
+      "scenarios": [],
+      "gates": [
+        {
+          "id": "report-tests",
+          "kind": "command",
+          "command": "python -m pytest -q tests/test_reports.py",
+          "mandatory": true,
+          "status": "pending",
+          "evidence": null
+        }
+      ],
+      "next_action": "Run the task pre-flight.",
+      "blocker": null,
+      "notes": [],
+      "failures": [],
+      "limitations": [],
+      "created_at": "2026-10-27T09:57:15.780Z",
+      "updated_at": "2026-10-27T09:57:15.781Z"
+    },
+    {
+      "id": "TASK-07",
+      "outcome": "Implement controlled publication of actionable GitHub review comments, enforce the explicit publishing flag and minimum required permissions, and ensure dry-run mode cannot publish comments.",
+      "state": "queued",
+      "risk": "low",
+      "owner": null,
+      "scope": [],
+      "dependencies": [
+        "TASK-03",
+        "TASK-06"
+      ],
+      "requirements": [
+        "FR-15",
+        "NFR-7",
+        "NFR-8",
+        "AC-10",
+        "AC-11"
+      ],
+      "inputs": [],
+      "environment": [],
+      "scenarios": [],
+      "gates": [
+        {
+          "id": "publishing-tests",
+          "kind": "command",
+          "command": "python -m pytest -q tests/test_publishing.py",
+          "mandatory": true,
+          "status": "pending",
+          "evidence": null
+        }
+      ],
+      "next_action": "Run the task pre-flight.",
+      "blocker": null,
+      "notes": [],
+      "failures": [],
+      "limitations": [],
+      "created_at": "2026-10-27T09:57:37.686Z",
+      "updated_at": "2026-10-27T09:57:37.687Z"
+    },
+    {
+      "id": "TASK-08",
+      "outcome": "Implement a manual review command and comprehensive integration tests covering webhook security, duplicate delivery, analysis, verification, API failures, publishing safeguards, Windows compatibility, and a controlled end-to-end pull-request review.",
+      "state": "queued",
+      "risk": "low",
+      "owner": null,
+      "scope": [],
+      "dependencies": [
+        "TASK-07"
+      ],
+      "requirements": [
+        "FR-18",
+        "FR-19",
+        "NFR-12",
+        "AC-12",
+        "AC-14",
+        "AC-15"
+      ],
+      "inputs": [],
+      "environment": [],
+      "scenarios": [],
+      "gates": [
+        {
+          "id": "integration-tests",
+          "kind": "command",
+          "command": "python -m pytest -q",
+          "mandatory": true,
+          "status": "pending",
+          "evidence": null
+        }
+      ],
+      "next_action": "Run the task pre-flight.",
+      "blocker": null,
+      "notes": [],
+      "failures": [],
+      "limitations": [],
+      "created_at": "2026-10-27T09:57:44.787Z",
+      "updated_at": "2026-10-27T09:57:44.788Z"
+    }
+  ],
+  "learning_proposals": [],
+  "cleanup_proposals": [],
+  "controls": [],
+  "attempts": [
+    {
+      "id": "47b41251-e0be-4656-940d-c473b696d0ef",
+      "task": "TASK-01",
+      "kind": "gate",
+      "command": "python -m pytest -q tests/test_config.py",
+      "timeout": 120000,
+      "authorization": null,
+      "pid": 4984,
+      "child_pid": 23268,
+      "started_at": "2026-10-27T09:59:39.173Z",
+      "status": "failed",
+      "before_hash": "c9fc9aa5b2ba5589ad33b64fe52711f109bc772a8f94f5409eaa98f3354bc3a2",
+      "config_hash": "c1bff3e965d79df4ccc7f808a7ba7a81a9f436adb1920c330e6ba331515dbf39",
+      "environment": {
+        "node": "v24.11.1",
+        "platform": "win32",
+        "arch": "x64",
+        "verifier": "cbdddbf25e5ed5f3406b93881ae54f64d11a8c54f0bfe177d19d9d9946a6a971",
+        "variables": {}
+      },
+      "cost": null,
+      "stop_reason": "source-mutated",
+      "ended_at": "2026-10-27T09:59:40.511Z"
+    },
+    {
+      "id": "2222ca85-b69c-459f-a47b-b9899ffabd52",
+      "task": "TASK-01",
+      "kind": "gate",
+      "command": "python -m pytest -q tests/test_config.py",
+      "timeout": 120000,
+      "authorization": null,
+      "pid": 18824,
+      "child_pid": 15260,
+      "started_at": "2026-10-27T10:22:43.994Z",
+      "status": "passed",
+      "before_hash": "bff1ce271ce5207aa4075b9213e1d198a2976bd25196075b4c7b86ddc275b754",
+      "config_hash": "c1bff3e965d79df4ccc7f808a7ba7a81a9f436adb1920c330e6ba331515dbf39",
+      "environment": {
+        "node": "v24.11.1",
+        "platform": "win32",
+        "arch": "x64",
+        "verifier": "cbdddbf25e5ed5f3406b93881ae54f64d11a8c54f0bfe177d19d9d9946a6a971",
+        "variables": {}
+      },
+      "cost": null,
+      "stop_reason": null,
+      "ended_at": "2026-10-27T10:22:45.644Z"
+    },
+    {
+      "id": "27b38ab4-2bdb-4a82-b935-f0207fcd18a8",
+      "task": "TASK-02",
+      "kind": "gate",
+      "command": "python -m pytest -q tests/test_webhooks.py",
+      "timeout": 120000,
+      "authorization": null,
+      "pid": 17220,
+      "child_pid": 24504,
+      "started_at": "2026-10-27T10:48:15.518Z",
+      "status": "passed",
+      "before_hash": "e1721919032a92e4523d1eeb748481bcf17c5d49702ad2010fc0876d468472b8",
+      "config_hash": "e2c2e9eb68762ac0941279b05cb6c81779305c21ecfbb21c2a5a97e3993be0ee",
+      "environment": {
+        "node": "v24.11.1",
+        "platform": "win32",
+        "arch": "x64",
+        "verifier": "cbdddbf25e5ed5f3406b93881ae54f64d11a8c54f0bfe177d19d9d9946a6a971",
+        "variables": {}
+      },
+      "cost": null,
+      "stop_reason": null,
+      "ended_at": "2026-10-27T10:48:17.524Z"
+    },
+    {
+      "id": "7406408f-b5ef-478c-b028-00469db719c7",
+      "task": "TASK-02",
+      "kind": "gate",
+      "command": "python -m pytest -q tests/test_webhooks.py",
+      "timeout": 120000,
+      "authorization": null,
+      "pid": 25224,
+      "child_pid": 9500,
+      "started_at": "2026-10-27T10:59:53.209Z",
+      "status": "passed",
+      "before_hash": "b5a8fbe581c4af21a939241ec60db767da5823a7d14b35b722b77f573c40f689",
+      "config_hash": "e2c2e9eb68762ac0941279b05cb6c81779305c21ecfbb21c2a5a97e3993be0ee",
+      "environment": {
+        "node": "v24.11.1",
+        "platform": "win32",
+        "arch": "x64",
+        "verifier": "cbdddbf25e5ed5f3406b93881ae54f64d11a8c54f0bfe177d19d9d9946a6a971",
+        "variables": {}
+      },
+      "cost": null,
+      "stop_reason": null,
+      "ended_at": "2026-10-27T10:59:55.675Z"
+    },
+    {
+      "id": "b7891e86-3097-4068-8475-141e1edcd48a",
+      "task": "TASK-02",
+      "kind": "gate",
+      "command": "python -m pytest -q tests/test_webhooks.py",
+      "timeout": 120000,
+      "authorization": null,
+      "pid": 23048,
+      "child_pid": 17696,
+      "started_at": "2026-10-27T11:02:51.711Z",
+      "status": "passed",
+      "before_hash": "69d4fca26f6d24b00d22ebdd2453f3ec7ed6efa33f996415e019a6082851a720",
+      "config_hash": "e2c2e9eb68762ac0941279b05cb6c81779305c21ecfbb21c2a5a97e3993be0ee",
+      "environment": {
+        "node": "v24.11.1",
+        "platform": "win32",
+        "arch": "x64",
+        "verifier": "cbdddbf25e5ed5f3406b93881ae54f64d11a8c54f0bfe177d19d9d9946a6a971",
+        "variables": {}
+      },
+      "cost": null,
+      "stop_reason": null,
+      "ended_at": "2026-10-27T11:02:54.416Z"
+    }
+  ],
+  "authorizations": [],
+  "experiments": [],
+  "incidents": [],
+  "discovery": null,
+  "checkpoint": null,
+  "legacy": null
+}

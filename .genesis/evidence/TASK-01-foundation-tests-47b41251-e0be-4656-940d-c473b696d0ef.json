@@ -1,0 +1,30 @@
+{
+  "task": "TASK-01",
+  "gate": "foundation-tests",
+  "kind": "command",
+  "attempt": "47b41251-e0be-4656-940d-c473b696d0ef",
+  "command": "python -m pytest -q tests/test_config.py",
+  "started_at": "2026-10-27T09:59:39.173Z",
+  "observed_at": "2026-10-27T09:59:40.511Z",
+  "exit_code": 4,
+  "signal": null,
+  "stdout": "\r\nno tests ran in 0.01s\r\n",
+  "stderr": "ERROR: file or directory not found: tests/test_config.py\r\n\r\n",
+  "failure": "source-mutated",
+  "receipt": null,
+  "revision": {
+    "commit": null,
+    "dirty": null
+  },
+  "source_hash": "c1bf5ad2472a38fb2be6fa298156b2bba3f7fe8b1fff0533df31bf4ce77963f8",
+  "before_hash": "c9fc9aa5b2ba5589ad33b64fe52711f109bc772a8f94f5409eaa98f3354bc3a2",
+  "config_hash": "c1bff3e965d79df4ccc7f808a7ba7a81a9f436adb1920c330e6ba331515dbf39",
+  "environment": {
+    "node": "v24.11.1",
+    "platform": "win32",
+    "arch": "x64",
+    "verifier": "cbdddbf25e5ed5f3406b93881ae54f64d11a8c54f0bfe177d19d9d9946a6a971",
+    "variables": {}
+  },
+  "hash": "6071b7efa7e202f490435a177f2b6e98f985a0f78f7e36a615702d6814e54f00"
+}

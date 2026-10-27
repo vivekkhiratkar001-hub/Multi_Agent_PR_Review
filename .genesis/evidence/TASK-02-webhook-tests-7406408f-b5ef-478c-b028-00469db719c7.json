@@ -1,0 +1,30 @@
+{
+  "task": "TASK-02",
+  "gate": "webhook-tests",
+  "kind": "command",
+  "attempt": "7406408f-b5ef-478c-b028-00469db719c7",
+  "command": "python -m pytest -q tests/test_webhooks.py",
+  "started_at": "2026-10-27T10:59:53.209Z",
+  "observed_at": "2026-10-27T10:59:55.675Z",
+  "exit_code": 0,
+  "signal": null,
+  "stdout": "..........                                                               [100%]\r\n============================== warnings summary ===============================\r\n.venv\\Lib\\site-packages\\fastapi\\testclient.py:1\r\n  C:\\Users\\vivek\\OneDrive\\Desktop\\Multi_Agent_PR_Review\\.venv\\Lib\\site-packages\\fastapi\\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.\r\n    from starlette.testclient import TestClient as TestClient  # noqa\r\n\r\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\r\n10 passed, 1 warning in 0.62s\r\n",
+  "stderr": "",
+  "failure": null,
+  "receipt": null,
+  "revision": {
+    "commit": null,
+    "dirty": null
+  },
+  "source_hash": "b5a8fbe581c4af21a939241ec60db767da5823a7d14b35b722b77f573c40f689",
+  "before_hash": "b5a8fbe581c4af21a939241ec60db767da5823a7d14b35b722b77f573c40f689",
+  "config_hash": "e2c2e9eb68762ac0941279b05cb6c81779305c21ecfbb21c2a5a97e3993be0ee",
+  "environment": {
+    "node": "v24.11.1",
+    "platform": "win32",
+    "arch": "x64",
+    "verifier": "cbdddbf25e5ed5f3406b93881ae54f64d11a8c54f0bfe177d19d9d9946a6a971",
+    "variables": {}
+  },
+  "hash": "dea6df85554a2ab514163b466fc99ae8f30172d872424d191cb483c6ee9cd331"
+}
