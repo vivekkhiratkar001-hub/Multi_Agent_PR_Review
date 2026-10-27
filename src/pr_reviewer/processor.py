@@ -1,9 +1,6 @@
 
 from typing import Any
 
-from github import GithubException
-
-from pr_reviewer.config import Settings
 from pr_reviewer.github_client import GitHubClientError, GitHubPRClient
 from pr_reviewer.jobs import JobStore
 
@@ -29,20 +26,15 @@ class ReviewJobProcessor:
         if job["status"] == "completed":
             return job
 
-        if job["status"] == "processing":
-            raise RuntimeError(
-            f"Job {delivery_id} is already marked as processing"
-            )
-
         if job["status"] == "failed":
             raise RuntimeError(
                 f"Job {delivery_id} has permanently failed; "
                 "manual recovery is required"
             )
 
-        claimed = self.store.claim_job(delivery_id)
+        claim_token = self.store.claim_job_with_token(delivery_id)
 
-        if not claimed:
+        if claim_token is None:
             latest_job = self.store.get_job(delivery_id)
 
             if latest_job is None:
@@ -54,7 +46,7 @@ class ReviewJobProcessor:
             raise RuntimeError(
                 f"Could not claim job {delivery_id}; "
                 f"current status: {latest_job['status']}"
-        )
+            )
         try:
             pr_data = self.github_client.get_pull_request(
                 job["repository"],
@@ -67,6 +59,7 @@ class ReviewJobProcessor:
                 head_sha=pr_data["head_sha"],
                 title=pr_data["title"],
                 changed_files=pr_data["changed_files"],
+                claim_token=claim_token,
             )
 
             if not saved:
@@ -74,7 +67,15 @@ class ReviewJobProcessor:
                     f"Could not persist PR data for job {delivery_id}"
                 )
 
-            self.store.update_status(delivery_id, "completed")
+            completed = self.store.update_status(
+                delivery_id,
+                "completed",
+                claim_token=claim_token,
+            )
+            if not completed:
+                raise RuntimeError(
+                    f"Claim for job {delivery_id} expired before completion"
+                )
 
             result = self.store.get_job(delivery_id)
             if result is None:
@@ -86,17 +87,13 @@ class ReviewJobProcessor:
 
         except GitHubClientError as exc:
             # The GitHub client has already exhausted its bounded API retries.
-            # A permanent API failure is failed; transient failures are
-            # reported as retryable by the client-specific exception context.
-            status = (
-                "failed"
-                if self._is_permanent_github_failure(exc)
-                else "retryable"
-            )
+            status = "retryable" if exc.retryable else "failed"
             self.store.update_status(
                 delivery_id,
                 status,
                 error=str(exc),
+                retry_after_seconds=exc.retry_after_seconds,
+                claim_token=claim_token,
             )
             raise
 
@@ -105,15 +102,6 @@ class ReviewJobProcessor:
                 delivery_id,
                 "failed",
                 error=str(exc),
+                claim_token=claim_token,
             )
             raise
-
-    @staticmethod
-    def _is_permanent_github_failure(exc: Exception) -> bool:
-        """Classify known permanent GitHub API failures."""
-        cause = exc.__cause__
-
-        if isinstance(cause, GithubException):
-            return cause.status in {400, 401, 404, 422}
-
-        return False
